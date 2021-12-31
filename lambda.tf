@@ -6,7 +6,7 @@ terraform {
     }
   }
 
-  required_version = ">= 0.14.9"
+  required_version = ">= 1.1.2"
 
   backend "s3" {
     bucket = "040489059668-bucket"
@@ -40,11 +40,11 @@ EOF
 }
 
 resource "aws_lambda_function" "weather_check_lambda" {
-  filename         = "weather_check_lambda.zip"
+  filename         = "./target/hello-dev.jar"
   function_name    = "weather_check_lambda"
   role             = aws_iam_role.iam_weather_check_lambda.arn
   handler          = "com.serverless.Handler"
-  source_code_hash = filebase64sha256("weather_check_lambda.zip")
+  source_code_hash = filebase64sha256("./target/hello-dev.jar")
   runtime          = "java8"
 
   environment {
