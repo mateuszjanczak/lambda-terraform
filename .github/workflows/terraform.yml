@@ -49,6 +49,9 @@ jobs:
     - name: Terraform Format
       run: terraform fmt -check
 
+    - name: LS
+      run: tree .
+
     - name: Terraform Plan
       run: terraform plan
 
