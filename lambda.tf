@@ -40,11 +40,11 @@ EOF
 }
 
 resource "aws_lambda_function" "weather_check_lambda" {
-  filename         = "target/hello-dev.jar"
+  filename         = "./target/hello-dev.jar"
   function_name    = "weather_check_lambda"
   role             = aws_iam_role.iam_weather_check_lambda.arn
   handler          = "com.serverless.Handler"
-  source_code_hash = filebase64sha256("target/hello-dev.jar")
+  source_code_hash = filebase64sha256("./target/hello-dev.jar")
   runtime          = "java8"
 
   environment {
