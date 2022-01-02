@@ -56,7 +56,7 @@ jobs:
       run: terraform init
 
     - name: Select workspace
-      run: terraform workspace select $environment
+      run: terraform workspace select dev
 
     - name: Terraform Format
       run: terraform fmt -check
