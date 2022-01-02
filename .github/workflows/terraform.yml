@@ -10,7 +10,7 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-    environment: production
+    environment: dev
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -54,6 +54,9 @@ jobs:
 
     - name: Terraform Init
       run: terraform init
+
+    - name: Select workspace
+      run: terraform workspace select $environment
 
     - name: Terraform Format
       run: terraform fmt -check
