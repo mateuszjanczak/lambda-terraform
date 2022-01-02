@@ -1,0 +1,6 @@
+lambda:
+  weather-check-lambda:
+    handler: com.mateuszjanczak.weatherchecklambda.Handler
+    environment:
+      API_URL: https://api.openweathermap.org/data/2.5/weather?q=%CITY%&appid=%APIKEY%&units=metric
+      API_KEY: 749561a315b14523a8f5f1ef95e45864
